@@ -90,9 +90,11 @@ public class MathMethods
             System.out.println("Please input the side c:");
             c=input.nextDouble();
             System.out.println("Please input the angle B:");
-            B=input.nextDouble();
+            B=Math.toRadians(input.nextDouble());
             
-            b=Math.sqrt(Math.pow(a,2)+Math.pow(a,2)-2*a*c*Math.cos(B));
+            b=Math.sqrt(Math.pow(a,2)+Math.pow(c,2)-(2*a*c*Math.cos(B)));
+            
+            System.out.println(" "+Math.cos(B));
             System.out.println("The length of remain side is: "+b);
         }else if(num==2){
             System.out.println("Please input the side a:");
@@ -102,11 +104,11 @@ public class MathMethods
             System.out.println("Please input the side c:");
             c=input.nextDouble();
            
-            A=Math.cosh((Math.pow(b,2)+Math.pow(c,2)-Math.pow(a,2))/(2*c*b));
+            A=Math.toDegrees(Math.acos((Math.pow(b,2)+Math.pow(c,2)-Math.pow(a,2))/(2*c*b)));
             System.out.println("The angle of A is: "+A);
-            B=Math.cosh((Math.pow(a,2)+Math.pow(c,2)-Math.pow(b,2))/(2*a*c));
+            B=Math.toDegrees(Math.acos((Math.pow(a,2)+Math.pow(c,2)-Math.pow(b,2))/(2*a*c)));
             System.out.println("The angle of B is: "+B);           
-            C=Math.cosh((Math.pow(a,2)+Math.pow(b,2)-Math.pow(c,2))/(2*a*b));
+            C=Math.toDegrees(Math.acos((Math.pow(a,2)+Math.pow(b,2)-Math.pow(c,2))/(2*a*b)));
             System.out.println("The angle of C is: "+C);
         }
     }
@@ -122,23 +124,23 @@ public class MathMethods
         
         if(num==1){
             System.out.println("Please input the angle A:");
-            A=input.nextDouble();
+            A=Math.toRadians(input.nextDouble());
             System.out.println("Please input the side a:");
             a=input.nextDouble();
             System.out.println("Please input the angle B:");
-            B=input.nextDouble();
+            B=Math.toRadians(input.nextDouble());
             
             b=a*Math.sin(B)/Math.sin(A);
             System.out.println("The lenth of b is: "+b);
         }else if(num==2){
             System.out.println("Please input the angle A:");
-            A=input.nextDouble();
+            A=Math.toRadians(input.nextDouble());
             System.out.println("Please input the side a:");
             a=input.nextDouble();
             System.out.println("Please input the side b:");
             b=input.nextDouble();
             
-            B=Math.sinh(Math.sin(A)*b/a);
+            B=Math.asin(Math.sin(A)*b/a);
             System.out.println("The angle B is:"+ B);
         }
     }
@@ -156,10 +158,11 @@ public class MathMethods
                 cosine();
             }else if(number==4){
                 sine();
+            
             }
             
 
-            
+        
         }
     
 }
